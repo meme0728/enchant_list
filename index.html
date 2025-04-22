@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マインクラフト エンチャント一覧</title>
+    <style>
+        @font-face {
+            font-family: 'Minecraft';
+            src: url('https://cdnjs.cloudflare.com/ajax/libs/font-minecraft/1.0.0/assets/font/minecraft-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'Minecraft', sans-serif;
+            background-color: #3E5D34;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAFxJREFUOE9j/P//PwMlgHHUAIZRA5jQwwDkkmcMDAwbGBgYEpAkNjAwMGhnZWXdgCzGiC0dMDAwpDMwMBxA0nCAoYGhPisr6wGyGNwAuNdHDRg1gGE0DAZRGAAAUe0cEQzf/rwAAAAASUVORK5CYII=');
+            background-repeat: repeat;
+            margin: 0;
+            padding: 20px;
+            color: white;
+            text-shadow: 2px 2px #2A3A24;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #AAFFAA;
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #5D9C43;
+            border: 4px solid #2A3A24;
+            border-radius: 5px;
+            padding: 15px;
+            cursor: pointer;
+            position: relative;
+            height: 170px;
+            perspective: 1000px;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+            background-color: #4A7A35;
+        }
+
+        .enchant-name {
+            font-size: 22px;
+            color: #FFFFAA;
+            margin-bottom: 10px;
+        }
+
+        .enchant-description {
+            font-size: 14px;
+            color: #FFFFFF;
+        }
+
+        .enchant-reading {
+            font-size: 18px;
+            color: #FFFFAA;
+            margin-bottom: 10px;
+        }
+        
+        .enchant-desc-reading {
+            font-size: 14px;
+            color: #DDFFDD;
+            margin-bottom: 10px;
+        }
+
+        .enchant-max-level {
+            font-size: 14px;
+            color: #AAFFAA;
+            margin-top: 10px;
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 10px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .header img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .sort-controls {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #4A7A35;
+            border: 3px solid #2A3A24;
+            color: white;
+            padding: 10px 15px;
+            font-family: 'Minecraft', sans-serif;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+
+        button:hover {
+            background-color: #5D9C43;
+        }
+
+        .search-box {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input {
+            background-color: #4A7A35;
+            border: 3px solid #2A3A24;
+            color: white;
+            padding: 10px;
+            font-family: 'Minecraft', sans-serif;
+            font-size: 16px;
+            width: 300px;
+        }
+
+        .instruction {
+            text-align: center;
+            font-size: 16px;
+            color: #AAFFAA;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <!-- クリーパー顔のアイコン -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="50" height="50">
+                <rect width="64" height="64" fill="#5D9C43"/>
+                <rect x="8" y="16" width="12" height="12" fill="#000"/>
+                <rect x="44" y="16" width="12" height="12" fill="#000"/>
+                <rect x="20" y="40" width="8" height="8" fill="#000"/>
+                <rect x="36" y="40" width="8" height="8" fill="#000"/>
+                <rect x="28" y="40" width="8" height="16" fill="#000"/>
+            </svg>
+            <h1>マインクラフト エンチャント一覧</h1>
+            <!-- クリーパー顔のアイコン -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="50" height="50">
+                <rect width="64" height="64" fill="#5D9C43"/>
+                <rect x="8" y="16" width="12" height="12" fill="#000"/>
+                <rect x="44" y="16" width="12" height="12" fill="#000"/>
+                <rect x="20" y="40" width="8" height="8" fill="#000"/>
+                <rect x="36" y="40" width="8" height="8" fill="#000"/>
+                <rect x="28" y="40" width="8" height="16" fill="#000"/>
+            </svg>
+        </div>
+
+        <div class="instruction">カードをタップすると、ひらがなの読み方が見られるよ！</div>
+
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="エンチャントを検索する...">
+        </div>
+
+        <div class="sort-controls">
+            <button id="sort-name">名前順</button>
+            <button id="sort-type">種類順</button>
+            <button id="sort-level">レベル順</button>
+        </div>
+
+        <div class="cards-container" id="cards-container">
+            <!-- カードはJavaScriptで動的に生成されます -->
+        </div>
+    </div>
+
+    <script>
+        // エンチャント一覧データ
+        const enchants = [
+            {
+                name: "ダメージ増加",
+                reading: "だめーじぞうか",
+                description: "攻撃力が上がる",
+                descReading: "こうげきりょくがあがる",
+                maxLevel: 5,
+                type: "武器"
+            },
+            {
+                name: "耐久力",
+                reading: "たいきゅうりょく",
+                description: "道具が長持ちする",
+                descReading: "どうぐがながもちする",
+                maxLevel: 3,
+                type: "道具/防具"
+            },
+            {
+                name: "シルクタッチ",
+                reading: "しるくたっち",
+                description: "そのままのブロックを回収できる",
+                descReading: "そのままのぶろっくをかいしゅうできる",
+                maxLevel: 1,
+                type: "道具"
+            },
+            {
+                name: "効率強化",
+                reading: "こうりつきょうか",
+                description: "ブロックを速く壊せる",
+                descReading: "ぶろっくをはやくこわせる",
+                maxLevel: 5,
+                type: "道具"
+            },
+            {
+                name: "ダメージ軽減",
+                reading: "だめーじけいげん",
+                description: "受けるダメージが減る",
+                descReading: "うけるだめーじがへる",
+                maxLevel: 4,
+                type: "防具"
+            },
+            {
+                name: "火炎耐性",
+                reading: "かえんたいせい",
+                description: "炎のダメージを減らす",
+                descReading: "ほのおのだめーじをへらす",
+                maxLevel: 4,
+                type: "防具"
+            },
+            {
+                name: "落下耐性",
+                reading: "らっかたいせい",
+                description: "落下ダメージを減らす",
+                descReading: "らっかだめーじをへらす",
+                maxLevel: 4,
+                type: "ブーツ"
+            },
+            {
+                name: "水中呼吸",
+                reading: "すいちゅうこきゅう",
+                description: "水の中で長く息ができる",
+                descReading: "みずのなかでながくいきができる",
+                maxLevel: 3,
+                type: "ヘルメット"
+            },
+            {
+                name: "爆発耐性",
+                reading: "ばくはつたいせい",
+                description: "爆発のダメージを減らす",
+                descReading: "ばくはつのだめーじをへらす",
+                maxLevel: 4,
+                type: "防具"
+            },
+            {
+                name: "水中採掘",
+                reading: "すいちゅうさいくつ",
+                description: "水の中で速く掘れる",
+                descReading: "みずのなかではやくほれる",
+                maxLevel: 1,
+                type: "ヘルメット"
+            },
+            {
+                name: "棘の鎧",
+                reading: "とげのよろい",
+                description: "敵を傷つけ返す",
+                descReading: "てきをきずつけかえす",
+                maxLevel: 3,
+                type: "防具"
+            },
+            {
+                name: "水中歩行",
+                reading: "すいちゅうほこう",
+                description: "水の中を速く歩ける",
+                descReading: "みずのなかをはやくあるける",
+                maxLevel: 3,
+                type: "ブーツ"
+            },
+            {
+                name: "修繕",
+                reading: "しゅうぜん",
+                description: "経験値を集めると道具が直る",
+                descReading: "けいけんちをあつめるとどうぐがなおる",
+                maxLevel: 1,
+                type: "道具/防具"
+            },
+            {
+                name: "無限",
+                reading: "むげん",
+                description: "矢を無限に使える",
+                descReading: "やをむげんにつかえる",
+                maxLevel: 1,
+                type: "弓"
+            },
+            {
+                name: "フレイム",
+                reading: "ふれいむ",
+                description: "矢が炎を持って飛ぶ",
+                descReading: "やがほのおをもってとぶ",
+                maxLevel: 1,
+                type: "弓"
+            },
+            {
+                name: "ノックバック",
+                reading: "のっくばっく",
+                description: "敵を遠くに打ち飛ばす",
+                descReading: "てきをおおくにうちあげる",
+                maxLevel: 3,
+                type: "弓"
+            },
+            {
+                name: "ドロップ増加",
+                reading: "どろっぷぞうか",
+                description: "モンスターからのドロップ品が増える",
+                descReading: "もんすたーからのどろっぷひんがふえる",
+                maxLevel: 3,
+                type: "武器"
+            },
+            {
+                name: "幸運",
+                reading: "こううん",
+                description: "レアなアイテムが出やすくなる",
+                descReading: "れあなあいてむがでやすくなる",
+                maxLevel: 3,
+                type: "道具"
+            },
+            {
+                name: "射撃ダメージ増加",
+                reading: "しゃげきだめーじぞうか",
+                description: "弓の攻撃力が上がる",
+                descReading: "やじるしのうげきりょくがあがる",
+                maxLevel: 5,
+                type: "弓"
+            },
+            {
+                name: "パンチ",
+                reading: "ぱんち",
+                description: "弓の矢で敵を遠くに飛ばす",
+                descReading: "やじるしの矢でてきをおおくにとばす",
+                maxLevel: 2,
+                type: "弓"
+            }
+        ];
+
+        // カードを生成する関数
+        function createCards(enchantsToDisplay) {
+            const container = document.getElementById('cards-container');
+            container.innerHTML = ''; // 既存のカードをクリア
+
+            enchantsToDisplay.forEach(enchant => {
+                // カードを作成
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.onclick = function() {
+                    this.classList.toggle('flipped');
+                };
+
+                const cardInner = document.createElement('div');
+                cardInner.className = 'card-inner';
+
+                // カード表面
+                const cardFront = document.createElement('div');
+                cardFront.className = 'card-front';
+
+                const enchantIcon = document.createElement('div');
+                enchantIcon.className = 'card-icon';
+                enchantIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
+                    <rect width="24" height="24" fill="#AAFFAA" />
+                    <rect x="2" y="2" width="20" height="20" fill="#2A3A24" />
+                    <rect x="4" y="4" width="16" height="16" fill="#AAFFAA" />
+                </svg>`;
+
+                const enchantName = document.createElement('div');
+                enchantName.className = 'enchant-name';
+                enchantName.textContent = enchant.name;
+
+                const enchantDesc = document.createElement('div');
+                enchantDesc.className = 'enchant-description';
+                enchantDesc.textContent = enchant.description;
+
+                const enchantType = document.createElement('div');
+                enchantType.className = 'enchant-description';
+                enchantType.textContent = `種類: ${enchant.type}`;
+
+                cardFront.appendChild(enchantIcon);
+                cardFront.appendChild(enchantName);
+                cardFront.appendChild(enchantDesc);
+                cardFront.appendChild(enchantType);
+
+                // カード裏面
+                const cardBack = document.createElement('div');
+                cardBack.className = 'card-back';
+
+                const reading = document.createElement('div');
+                reading.className = 'enchant-reading';
+                reading.textContent = `読み方: ${enchant.reading}`;
+
+                const descReading = document.createElement('div');
+                descReading.className = 'enchant-desc-reading';
+                descReading.textContent = `読み方: ${enchant.descReading}`;
+
+                const maxLevel = document.createElement('div');
+                maxLevel.className = 'enchant-max-level';
+                maxLevel.textContent = `最大レベル: ${enchant.maxLevel}`;
+
+                cardBack.appendChild(reading);
+                cardBack.appendChild(document.createElement('br'));
+                cardBack.appendChild(descReading);
+                cardBack.appendChild(document.createElement('br'));
+                cardBack.appendChild(maxLevel);
+
+                // カードを組み立て
+                cardInner.appendChild(cardFront);
+                cardInner.appendChild(cardBack);
+                card.appendChild(cardInner);
+                container.appendChild(card);
+            });
+        }
+
+        // 初期表示
+        createCards(enchants);
+
+        // 検索機能
+        document.getElementById('search-input').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const filteredEnchants = enchants.filter(enchant => 
+                enchant.name.toLowerCase().includes(searchTerm) || 
+                enchant.reading.toLowerCase().includes(searchTerm) ||
+                enchant.description.toLowerCase().includes(searchTerm) ||
+                enchant.type.toLowerCase().includes(searchTerm)
+            );
+            createCards(filteredEnchants);
+        });
+
+        // ソート機能
+        document.getElementById('sort-name').addEventListener('click', function() {
+            const sortedEnchants = [...enchants].sort((a, b) => a.name.localeCompare(b.name, 'ja'));
+            createCards(sortedEnchants);
+        });
+
+        document.getElementById('sort-type').addEventListener('click', function() {
+            const sortedEnchants = [...enchants].sort((a, b) => a.type.localeCompare(b.type, 'ja'));
+            createCards(sortedEnchants);
+        });
+
+        document.getElementById('sort-level').addEventListener('click', function() {
+            const sortedEnchants = [...enchants].sort((a, b) => b.maxLevel - a.maxLevel);
+            createCards(sortedEnchants);
+        });
+    </script>
+</body>
+</html>
