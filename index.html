@@ -217,278 +217,317 @@
         // エンチャント一覧データ
         const enchants = [
             {
-                name: "ダメージ軽減",
-                reading: "だめーじけいげん",
-                description: "あらゆるダメージを軽減する",
-                descReading: "あらゆるだめーじをけいげんする",
-                type: "防具"
-            },
-            {
-                name: "火炎耐性",
-                reading: "かえんたいせい",
-                description: "炎や溶岩のダメージを軽減する",
-                descReading: "ほのおやようがんのだめーじをけいげんする",
-                type: "防具"
-            },
-            {
-                name: "落下耐性",
-                reading: "らっかたいせい",
-                description: "落下ダメージを軽減する",
-                descReading: "らっかだめーじをけいげんする",
-                type: "防具"
-            },
-            {
-                name: "爆発耐性",
-                reading: "ばくはつたいせい",
-                description: "爆発ダメージを軽減する",
-                descReading: "ばくはつだめーじをけいげんする",
-                type: "防具"
-            },
-            {
-                name: "飛び道具耐性",
-                reading: "とびどうぐたいせい",
-                description: "飛び道具のダメージを軽減する",
-                descReading: "とびどうぐのだめーじをけいげんする",
-                type: "防具"
-            },
-            {
-                name: "棘の鎧",
-                reading: "とげのよろい",
-                description: "攻撃者にダメージを与える",
-                descReading: "こうげきしゃにだめーじをあたえる",
-                type: "防具"
-            },
-            {
-                name: "水中呼吸",
-                reading: "すいちゅうこきゅう",
-                description: "水中での呼吸時間を延ばす",
-                descReading: "すいちゅうでのこきゅうじかんをのばす",
-                type: "防具"
-            },
-            {
-                name: "水中歩行",
-                reading: "すいちゅうほこう",
-                description: "水中移動速度が上がる",
-                descReading: "すいちゅういどうそくどがあがる",
-                type: "防具"
-            },
-            {
-                name: "水中採掘",
-                reading: "すいちゅうさいくつ",
-                description: "水中での採掘速度を上げる",
-                descReading: "すいちゅうでのさいくつそくどをあげる",
-                type: "防具"
-            },
-            {
-                name: "氷渡り",
-                reading: "こおりわたり",
-                description: "水を歩くと氷に変える",
-                descReading: "みずをあるくとこおりにかえる",
-                type: "防具"
-            },
-            {
-                name: "ソウルスピード",
-                reading: "そうるすぴーど",
-                description: "ソウルサンド上の速度が上がる",
-                descReading: "そうるさんどじょうのそくどがあがる",
-                type: "防具"
-            },
-            {
-                name: "束縛の呪い",
-                reading: "そくばくののろい",
-                description: "装備を外せなくなる",
-                descReading: "そうびをはずせなくなる",
-                type: "防具"
-            },
-            {
-                name: "消滅の呪い",
-                reading: "しょうめつののろい",
-                description: "死亡時に装備が消える",
-                descReading: "しぼうじにそうびがきえる",
-                type: "防具"
-            },
-            {
-                name: "スニーク速度上昇",
-                reading: "すにーくそくどじょうしょう",
-                description: "スニーク中の移動速度が上がる",
-                descReading: "すにーくちゅうのいどうそくどがあがる",
-                type: "防具"
-            },
-            {
-                name: "ダメージ増加",
-                reading: "だめーじぞうか",
-                description: "近接攻撃のダメージが増える",
-                descReading: "きんせつこうげきのだめーじがふえる",
-                type: "武器"
-            },
-            {
-                name: "アンデッド特効",
-                reading: "あんでっどとっこう",
-                description: "アンデッド系へのダメージが増える",
-                descReading: "あんでっどけいへのだめーじがふえる",
-                type: "武器"
-            },
-            {
-                name: "虫特効",
-                reading: "むしとっこう",
-                description: "虫系へのダメージが増える",
-                descReading: "むしけいへのだめーじがふえる",
-                type: "武器"
-            },
-            {
-                name: "ノックバック",
-                reading: "のっくばっく",
-                description: "敵を吹き飛ばす",
-                descReading: "てきをふきとばす",
-                type: "武器"
-            },
-            {
-                name: "火属性",
-                reading: "ひぞくせい",
-                description: "敵を炎上させる",
-                descReading: "てきをえんじょうさせる",
-                type: "武器"
-            },
-            {
-                name: "ドロップ増加",
-                reading: "どろっぷぞうか",
-                description: "モンスターからのドロップが増える",
-                descReading: "もんすたーからのどろっぷがふえる",
-                type: "武器"
-            },
-            {
-                name: "範囲ダメージ増加",
-                reading: "はんいだめーじぞうか",
-                description: "なぎ払いのダメージが増える",
-                descReading: "なぎはらいのだめーじがふえる",
-                type: "武器"
-            },
-            {
-                name: "効率強化",
-                reading: "こうりつきょうか",
-                description: "採掘や伐採速度が上がる",
-                descReading: "さいくつやばっさいそくどがあがる",
-                type: "道具"
-            },
-            {
-                name: "シルクタッチ",
-                reading: "しるくたっち",
-                description: "ブロックをそのまま回収できる",
-                descReading: "ぶろっくをそのままかいしゅうできる",
-                type: "道具"
-            },
-            {
-                name: "耐久力",
-                reading: "たいきゅうりょく",
-                description: "壊れにくくなる",
-                descReading: "こわれにくくなる",
-                type: "道具"
-            },
-            {
-                name: "幸運",
-                reading: "こううん",
-                description: "ドロップ数が増える",
-                descReading: "どろっぷすうがふえる",
-                type: "道具"
-            },
-            {
-                name: "射撃ダメージ増加",
-                reading: "しゃげきだめーじぞうか",
-                description: "矢のダメージが上がる",
-                descReading: "やのだめーじがあがる",
-                type: "弓"
-            },
-            {
-                name: "パンチ",
-                reading: "ぱんち",
-                description: "矢のノックバックを強化する",
-                descReading: "やののっくばっくをきょうかする",
-                type: "弓"
-            },
-            {
-                name: "フレイム",
-                reading: "ふれいむ",
-                description: "矢に火をつける",
-                descReading: "やにひをつける",
-                type: "弓"
-            },
-            {
-                name: "無限",
-                reading: "むげん",
-                description: "矢を消費せずに撃てる",
-                descReading: "やをしょうひせずにうてる",
-                type: "弓"
-            },
-            {
-                name: "拡散",
-                reading: "かくさん",
-                description: "矢を三方向に撃つ",
-                descReading: "やをさんほうこうにうつ",
-                type: "クロスボウ"
-            },
-            {
-                name: "貫通",
-                reading: "かんつう",
-                description: "矢が複数の敵を貫通する",
-                descReading: "やがふくすうのてきをかんつうする",
-                type: "クロスボウ"
-            },
-            {
-                name: "高速装填",
-                reading: "こうそくそうてん",
-                description: "クロスボウの装填速度が上がる",
-                descReading: "くろすぼうのそうてんそくどがあがる",
-                type: "クロスボウ"
-            },
-            {
-                name: "宝釣り",
-                reading: "たからづり",
-                description: "レアアイテムが釣れやすくなる",
-                descReading: "れああいてむがつれやすくなる",
-                type: "釣り竿"
-            },
-            {
-                name: "入れ食い",
-                reading: "いれぐい",
-                description: "魚が早くかかる",
-                descReading: "さかながはやくかかる",
-                type: "釣り竿"
-            },
-            {
-                name: "水生特効",
-                reading: "すいせいとっこう",
-                description: "水棲モブへのダメージが増える",
-                descReading: "すいせいもぶへのだめーじがふえる",
-                type: "トライデント"
-            },
-            {
-                name: "激流",
-                reading: "げきりゅう",
-                description: "水中や雨天で高速移動できる",
-                descReading: "すいちゅうやうてんでこうそくいどうできる",
-                type: "トライデント"
-            },
-            {
-                name: "忠誠",
-                reading: "ちゅうせい",
-                description: "投げたトライデントが戻る",
-                descReading: "なげたとらいでんとがもどる",
-                type: "トライデント"
-            },
-            {
-                name: "召雷",
-                reading: "しょうらい",
-                description: "雷を呼び出す",
-                descReading: "かみなりをよびだす",
-                type: "トライデント"
-            },
-            {
-                name: "修繕",
-                reading: "しゅうぜん",
-                description: "経験値で耐久値を回復する",
-                descReading: "けいけんちでたいきゅうちをかいふくする",
-                type: "共通"
-            }
+            "name": "ダメージ軽減",
+            "reading": "だめーじけいげん",
+            "description": "あらゆるダメージを軽減する",
+            "descReading": "あらゆるだめーじをけいげんする",
+            "type": "🛡️ 防具",
+            "icon": "🛡️"
+        },
+        {
+            "name": "火炎耐性",
+            "reading": "かえんたいせい",
+            "description": "炎や溶岩のダメージを軽減する",
+            "descReading": "ほのおやようがんのだめーじをけいげんする",
+            "type": "🛡️ 防具",
+            "icon": "🔥🛡️"
+        },
+        {
+            "name": "落下耐性",
+            "reading": "らっかたいせい",
+            "description": "落下ダメージを軽減する",
+            "descReading": "らっかだめーじをけいげんする",
+            "type": "🛡️ 防具",
+            "icon": "🪂🛡️"
+        },
+        {
+            "name": "爆発耐性",
+            "reading": "ばくはつたいせい",
+            "description": "爆発ダメージを軽減する",
+            "descReading": "ばくはつだめーじをけいげんする",
+            "type": "🛡️ 防具",
+            "icon": "💣🛡️"
+        },
+        {
+            "name": "飛び道具耐性",
+            "reading": "とびどうぐたいせい",
+            "description": "飛び道具のダメージを軽減する",
+            "descReading": "とびどうぐのだめーじをけいげんする",
+            "type": "🛡️ 防具",
+            "icon": "🏹🛡️"
+        },
+        {
+            "name": "棘の鎧",
+            "reading": "とげのよろい",
+            "description": "攻撃者にダメージを与える",
+            "descReading": "こうげきしゃにだめーじをあたえる",
+            "type": "🛡️ 防具",
+            "icon": "🌵🛡️"
+        },
+        {
+            "name": "水中呼吸",
+            "reading": "すいちゅうこきゅう",
+            "description": "水中での呼吸時間を延ばす",
+            "descReading": "すいちゅうでのこきゅうじかんをのばす",
+            "type": "🛡️ 防具",
+            "icon": "🌊🫧"
+        },
+        {
+            "name": "水中歩行",
+            "reading": "すいちゅうほこう",
+            "description": "水中移動速度が上がる",
+            "descReading": "すいちゅういどうそくどがあがる",
+            "type": "🛡️ 防具",
+            "icon": "👣🌊"
+        },
+        {
+            "name": "水中採掘",
+            "reading": "すいちゅうさいくつ",
+            "description": "水中での採掘速度を上げる",
+            "descReading": "すいちゅうでのさいくつそくどをあげる",
+            "type": "🛡️ 防具",
+            "icon": "⛏️🌊"
+        },
+        {
+            "name": "氷渡り",
+            "reading": "こおりわたり",
+            "description": "水を歩くと氷に変える",
+            "descReading": "みずをあるくとこおりにかえる",
+            "type": "🛡️ 防具",
+            "icon": "❄️👣"
+        },
+        {
+            "name": "ソウルスピード",
+            "reading": "そうるすぴーど",
+            "description": "ソウルサンド上の速度が上がる",
+            "descReading": "そうるさんどじょうのそくどがあがる",
+            "type": "🛡️ 防具",
+            "icon": "👟💨"
+        },
+        {
+            "name": "束縛の呪い",
+            "reading": "そくばくののろい",
+            "description": "装備を外せなくなる",
+            "descReading": "そうびをはずせなくなる",
+            "type": "🛡️ 防具",
+            "icon": "🪢🧿"
+        },
+        {
+            "name": "消滅の呪い",
+            "reading": "しょうめつののろい",
+            "description": "死亡時に装備が消える",
+            "descReading": "しぼうじにそうびがきえる",
+            "type": "🛡️ 防具",
+            "icon": "💀🫥"
+        },
+        {
+            "name": "スニーク速度上昇",
+            "reading": "すにーくそくどじょうしょう",
+            "description": "スニーク中の移動速度が上がる",
+            "descReading": "すにーくちゅうのいどうそくどがあがる",
+            "type": "🛡️ 防具",
+            "icon": "🕶️👣"
+        },
+        {
+            "name": "ダメージ増加",
+            "reading": "だめーじぞうか",
+            "description": "近接攻撃のダメージが増える",
+            "descReading": "きんせつこうげきのだめーじがふえる",
+            "type": "⚔️ 武器",
+            "icon": "⚔️💥"
+        },
+        {
+            "name": "アンデッド特効",
+            "reading": "あんでっどとっこう",
+            "description": "アンデッド系へのダメージが増える",
+            "descReading": "あんでっどけいへのだめーじがふえる",
+            "type": "⚔️ 武器",
+            "icon": "🧟⚔️"
+        },
+        {
+            "name": "虫特効",
+            "reading": "むしとっこう",
+            "description": "虫系へのダメージが増える",
+            "descReading": "むしけいへのだめーじがふえる",
+            "type": "⚔️ 武器",
+            "icon": "🐛🔪"
+        },
+        {
+            "name": "ノックバック",
+            "reading": "のっくばっく",
+            "description": "敵を吹き飛ばす",
+            "descReading": "てきをふきとばす",
+            "type": "⚔️ 武器",
+            "icon": "💨👊"
+        },
+        {
+            "name": "火属性",
+            "reading": "ひぞくせい",
+            "description": "敵を炎上させる",
+            "descReading": "てきをえんじょうさせる",
+            "type": "⚔️ 武器",
+            "icon": "🔥⚔️"
+        },
+        {
+            "name": "ドロップ増加",
+            "reading": "どろっぷぞうか",
+            "description": "モンスターからのドロップが増える",
+            "descReading": "もんすたーからのどろっぷがふえる",
+            "type": "⚔️ 武器",
+            "icon": "🎁🧱"
+        },
+        {
+            "name": "範囲ダメージ増加",
+            "reading": "はんいだめーじぞうか",
+            "description": "なぎ払いのダメージが増える",
+            "descReading": "なぎはらいのだめーじがふえる",
+            "type": "⚔️ 武器",
+            "icon": "🌀⚔️"
+        },
+        {
+            "name": "効率強化",
+            "reading": "こうりつきょうか",
+            "description": "採掘や伐採速度が上がる",
+            "descReading": "さいくつやばっさいそくどがあがる",
+            "type": "🛠️道具",
+            "icon": "⚡⛏️"
+        },
+        {
+            "name": "シルクタッチ",
+            "reading": "しるくたっち",
+            "description": "ブロックをそのまま回収できる",
+            "descReading": "ぶろっくをそのままかいしゅうできる",
+            "type": "🛠️道具",
+            "icon": "🧤🔮"
+        },
+        {
+            "name": "耐久力",
+            "reading": "たいきゅうりょく",
+            "description": "壊れにくくなる",
+            "descReading": "こわれにくくなる",
+            "type": "🛠️道具",
+            "icon": "🪓🪙"
+        },
+        {
+            "name": "幸運",
+            "reading": "こううん",
+            "description": "ドロップ数が増える",
+            "descReading": "どろっぷすうがふえる",
+            "type": "🛠️道具",
+            "icon": "🍀✨"
+        },
+        {
+            "name": "射撃ダメージ増加",
+            "reading": "しゃげきだめーじぞうか",
+            "description": "矢のダメージが上がる",
+            "descReading": "やのだめーじがあがる",
+            "type": "🏹 弓",
+            "icon": "🏹💥"
+        },
+        {
+            "name": "パンチ",
+            "reading": "ぱんち",
+            "description": "矢のノックバックを強化する",
+            "descReading": "やののっくばっくをきょうかする",
+            "type": "🏹 弓",
+            "icon": "🎯💨"
+        },
+        {
+            "name": "フレイム",
+            "reading": "ふれいむ",
+            "description": "矢に火をつける",
+            "descReading": "やにひをつける",
+            "type": "🏹 弓",
+            "icon": "🔥🏹"
+        },
+        {
+            "name": "無限",
+            "reading": "むげん",
+            "description": "矢を消費せずに撃てる",
+            "descReading": "やをしょうひせずにうてる",
+            "type": "🏹 弓",
+            "icon": "♾️🏹"
+        },
+        {
+            "name": "拡散",
+            "reading": "かくさん",
+            "description": "矢を三方向に撃つ",
+            "descReading": "やをさんほうこうにうつ",
+            "type": "クロスボウ",
+            "icon": "📡🏹"
+        },
+        {
+            "name": "貫通",
+            "reading": "かんつう",
+            "description": "矢が複数の敵を貫通する",
+            "descReading": "やがふくすうのてきをかんつうする",
+            "type": "クロスボウ",
+            "icon": "🎯➡️"
+        },
+        {
+            "name": "高速装填",
+            "reading": "こうそくそうてん",
+            "description": "クロスボウの装填速度が上がる",
+            "descReading": "くろすぼうのそうてんそくどがあがる",
+            "type": "クロスボウ",
+            "icon": "⚙️🏹"
+        },
+        {
+            "name": "宝釣り",
+            "reading": "たからづり",
+            "description": "レアアイテムが釣れやすくなる",
+            "descReading": "れああいてむがつれやすくなる",
+            "type": "🎣 釣り竿",
+            "icon": "🎣💎"
+        },
+        {
+            "name": "入れ食い",
+            "reading": "いれぐい",
+            "description": "魚が早くかかる",
+            "descReading": "さかながはやくかかる",
+            "type": "🎣 釣り竿",
+            "icon": "🐟⚡"
+        },
+        {
+            "name": "水生特効",
+            "reading": "すいせいとっこう",
+            "description": "水棲モブへのダメージが増える",
+            "descReading": "すいせいもぶへのだめーじがふえる",
+            "type": "🔱 トライデント",
+            "icon": "🐠🔱"
+        },
+        {
+            "name": "激流",
+            "reading": "げきりゅう",
+            "description": "水中や雨天で高速移動できる",
+            "descReading": "すいちゅうやうてんでこうそくいどうできる",
+            "type": "🔱 トライデント",
+            "icon": "🌊💨"
+        },
+        {
+            "name": "忠誠",
+            "reading": "ちゅうせい",
+            "description": "投げたトライデントが戻る",
+            "descReading": "なげたとらいでんとがもどる",
+            "type": "🔱 トライデント",
+            "icon": "🔄🔱"
+        },
+        {
+            "name": "召雷",
+            "reading": "しょうらい",
+            "description": "雷を呼び出す",
+            "descReading": "かみなりをよびだす",
+            "type": "🔱 トライデント",
+            "icon": "🌩️⚡"
+        },
+        {
+            "name": "修繕",
+            "reading": "しゅうぜん",
+            "description": "経験値で耐久値を回復する",
+            "descReading": "けいけんちでたいきゅうちをかいふくする",
+            "type": "🌀 共通",
+            "icon": "🔧✨"
+        }
         ];
 
         // カードを生成する関数
@@ -513,11 +552,12 @@
 
                 const enchantIcon = document.createElement('div');
                 enchantIcon.className = 'card-icon';
-                enchantIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
-                    <rect width="24" height="24" fill="#AAFFAA" />
-                    <rect x="2" y="2" width="20" height="20" fill="#2A3A24" />
-                    <rect x="4" y="4" width="16" height="16" fill="#AAFFAA" />
-                </svg>`;
+                // enchantIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
+                //     <rect width="24" height="24" fill="#AAFFAA" />
+                //     <rect x="2" y="2" width="20" height="20" fill="#2A3A24" />
+                //     <rect x="4" y="4" width="16" height="16" fill="#AAFFAA" />
+                // </svg>`;
+                enchantIcon.textContent = enchant.icon;
 
                 const enchantName = document.createElement('div');
                 enchantName.className = 'enchant-name';
@@ -529,7 +569,7 @@
 
                 const enchantType = document.createElement('div');
                 enchantType.className = 'enchant-description';
-                enchantType.textContent = `種類: ${enchant.type}`;
+                enchantType.textContent = `タイプ: ${enchant.type}`;
 
                 cardFront.appendChild(enchantIcon);
                 cardFront.appendChild(enchantName);
@@ -542,21 +582,21 @@
 
                 const reading = document.createElement('div');
                 reading.className = 'enchant-reading';
-                reading.textContent = `読み方: ${enchant.reading}`;
+                reading.textContent = `${enchant.reading}`;
 
                 const descReading = document.createElement('div');
                 descReading.className = 'enchant-desc-reading';
-                descReading.textContent = `読み方: ${enchant.descReading}`;
+                descReading.textContent = `${enchant.descReading}`;
 
-                const maxLevel = document.createElement('div');
-                maxLevel.className = 'enchant-max-level';
-                maxLevel.textContent = `最大レベル: ${enchant.maxLevel}`;
+                // const maxLevel = document.createElement('div');
+                // maxLevel.className = 'enchant-max-level';
+                // maxLevel.textContent = `最大レベル: ${enchant.maxLevel}`;
 
                 cardBack.appendChild(reading);
                 cardBack.appendChild(document.createElement('br'));
                 cardBack.appendChild(descReading);
                 cardBack.appendChild(document.createElement('br'));
-                cardBack.appendChild(maxLevel);
+                // cardBack.appendChild(maxLevel);
 
                 // カードを組み立て
                 cardInner.appendChild(cardFront);
