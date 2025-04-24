@@ -217,164 +217,277 @@
         // エンチャント一覧データ
         const enchants = [
             {
-                name: "ダメージ増加",
-                reading: "だめーじぞうか",
-                description: "攻撃力が上がる",
-                descReading: "こうげきりょくがあがる",
-                maxLevel: 5,
-                type: "武器"
-            },
-            {
-                name: "耐久力",
-                reading: "たいきゅうりょく",
-                description: "道具が長持ちする",
-                descReading: "どうぐがながもちする",
-                maxLevel: 3,
-                type: "道具/防具"
-            },
-            {
-                name: "シルクタッチ",
-                reading: "しるくたっち",
-                description: "そのままのブロックを回収できる",
-                descReading: "そのままのぶろっくをかいしゅうできる",
-                maxLevel: 1,
-                type: "道具"
-            },
-            {
-                name: "効率強化",
-                reading: "こうりつきょうか",
-                description: "ブロックを速く壊せる",
-                descReading: "ぶろっくをはやくこわせる",
-                maxLevel: 5,
-                type: "道具"
-            },
-            {
                 name: "ダメージ軽減",
                 reading: "だめーじけいげん",
-                description: "受けるダメージが減る",
-                descReading: "うけるだめーじがへる",
-                maxLevel: 4,
+                description: "あらゆるダメージを軽減する",
+                descReading: "あらゆるだめーじをけいげんする",
                 type: "防具"
             },
             {
                 name: "火炎耐性",
                 reading: "かえんたいせい",
-                description: "炎のダメージを減らす",
-                descReading: "ほのおのだめーじをへらす",
-                maxLevel: 4,
+                description: "炎や溶岩のダメージを軽減する",
+                descReading: "ほのおやようがんのだめーじをけいげんする",
                 type: "防具"
             },
             {
                 name: "落下耐性",
                 reading: "らっかたいせい",
-                description: "落下ダメージを減らす",
-                descReading: "らっかだめーじをへらす",
-                maxLevel: 4,
-                type: "ブーツ"
-            },
-            {
-                name: "水中呼吸",
-                reading: "すいちゅうこきゅう",
-                description: "水の中で長く息ができる",
-                descReading: "みずのなかでながくいきができる",
-                maxLevel: 3,
-                type: "ヘルメット"
+                description: "落下ダメージを軽減する",
+                descReading: "らっかだめーじをけいげんする",
+                type: "防具"
             },
             {
                 name: "爆発耐性",
                 reading: "ばくはつたいせい",
-                description: "爆発のダメージを減らす",
-                descReading: "ばくはつのだめーじをへらす",
-                maxLevel: 4,
+                description: "爆発ダメージを軽減する",
+                descReading: "ばくはつだめーじをけいげんする",
                 type: "防具"
             },
             {
-                name: "水中採掘",
-                reading: "すいちゅうさいくつ",
-                description: "水の中で速く掘れる",
-                descReading: "みずのなかではやくほれる",
-                maxLevel: 1,
-                type: "ヘルメット"
+                name: "飛び道具耐性",
+                reading: "とびどうぐたいせい",
+                description: "飛び道具のダメージを軽減する",
+                descReading: "とびどうぐのだめーじをけいげんする",
+                type: "防具"
             },
             {
                 name: "棘の鎧",
                 reading: "とげのよろい",
-                description: "敵を傷つけ返す",
-                descReading: "てきをきずつけかえす",
-                maxLevel: 3,
+                description: "攻撃者にダメージを与える",
+                descReading: "こうげきしゃにだめーじをあたえる",
+                type: "防具"
+            },
+            {
+                name: "水中呼吸",
+                reading: "すいちゅうこきゅう",
+                description: "水中での呼吸時間を延ばす",
+                descReading: "すいちゅうでのこきゅうじかんをのばす",
                 type: "防具"
             },
             {
                 name: "水中歩行",
                 reading: "すいちゅうほこう",
-                description: "水の中を速く歩ける",
-                descReading: "みずのなかをはやくあるける",
-                maxLevel: 3,
-                type: "ブーツ"
+                description: "水中移動速度が上がる",
+                descReading: "すいちゅういどうそくどがあがる",
+                type: "防具"
             },
             {
-                name: "修繕",
-                reading: "しゅうぜん",
-                description: "経験値を集めると道具が直る",
-                descReading: "けいけんちをあつめるとどうぐがなおる",
-                maxLevel: 1,
-                type: "道具/防具"
+                name: "水中採掘",
+                reading: "すいちゅうさいくつ",
+                description: "水中での採掘速度を上げる",
+                descReading: "すいちゅうでのさいくつそくどをあげる",
+                type: "防具"
             },
             {
-                name: "無限",
-                reading: "むげん",
-                description: "矢を無限に使える",
-                descReading: "やをむげんにつかえる",
-                maxLevel: 1,
-                type: "弓"
+                name: "氷渡り",
+                reading: "こおりわたり",
+                description: "水を歩くと氷に変える",
+                descReading: "みずをあるくとこおりにかえる",
+                type: "防具"
             },
             {
-                name: "フレイム",
-                reading: "ふれいむ",
-                description: "矢が炎を持って飛ぶ",
-                descReading: "やがほのおをもってとぶ",
-                maxLevel: 1,
-                type: "弓"
+                name: "ソウルスピード",
+                reading: "そうるすぴーど",
+                description: "ソウルサンド上の速度が上がる",
+                descReading: "そうるさんどじょうのそくどがあがる",
+                type: "防具"
+            },
+            {
+                name: "束縛の呪い",
+                reading: "そくばくののろい",
+                description: "装備を外せなくなる",
+                descReading: "そうびをはずせなくなる",
+                type: "防具"
+            },
+            {
+                name: "消滅の呪い",
+                reading: "しょうめつののろい",
+                description: "死亡時に装備が消える",
+                descReading: "しぼうじにそうびがきえる",
+                type: "防具"
+            },
+            {
+                name: "スニーク速度上昇",
+                reading: "すにーくそくどじょうしょう",
+                description: "スニーク中の移動速度が上がる",
+                descReading: "すにーくちゅうのいどうそくどがあがる",
+                type: "防具"
+            },
+            {
+                name: "ダメージ増加",
+                reading: "だめーじぞうか",
+                description: "近接攻撃のダメージが増える",
+                descReading: "きんせつこうげきのだめーじがふえる",
+                type: "武器"
+            },
+            {
+                name: "アンデッド特効",
+                reading: "あんでっどとっこう",
+                description: "アンデッド系へのダメージが増える",
+                descReading: "あんでっどけいへのだめーじがふえる",
+                type: "武器"
+            },
+            {
+                name: "虫特効",
+                reading: "むしとっこう",
+                description: "虫系へのダメージが増える",
+                descReading: "むしけいへのだめーじがふえる",
+                type: "武器"
             },
             {
                 name: "ノックバック",
                 reading: "のっくばっく",
-                description: "敵を遠くに打ち飛ばす",
-                descReading: "てきをおおくにうちあげる",
-                maxLevel: 3,
-                type: "弓"
+                description: "敵を吹き飛ばす",
+                descReading: "てきをふきとばす",
+                type: "武器"
+            },
+            {
+                name: "火属性",
+                reading: "ひぞくせい",
+                description: "敵を炎上させる",
+                descReading: "てきをえんじょうさせる",
+                type: "武器"
             },
             {
                 name: "ドロップ増加",
                 reading: "どろっぷぞうか",
-                description: "モンスターからのドロップ品が増える",
-                descReading: "もんすたーからのどろっぷひんがふえる",
-                maxLevel: 3,
+                description: "モンスターからのドロップが増える",
+                descReading: "もんすたーからのどろっぷがふえる",
                 type: "武器"
+            },
+            {
+                name: "範囲ダメージ増加",
+                reading: "はんいだめーじぞうか",
+                description: "なぎ払いのダメージが増える",
+                descReading: "なぎはらいのだめーじがふえる",
+                type: "武器"
+            },
+            {
+                name: "効率強化",
+                reading: "こうりつきょうか",
+                description: "採掘や伐採速度が上がる",
+                descReading: "さいくつやばっさいそくどがあがる",
+                type: "道具"
+            },
+            {
+                name: "シルクタッチ",
+                reading: "しるくたっち",
+                description: "ブロックをそのまま回収できる",
+                descReading: "ぶろっくをそのままかいしゅうできる",
+                type: "道具"
+            },
+            {
+                name: "耐久力",
+                reading: "たいきゅうりょく",
+                description: "壊れにくくなる",
+                descReading: "こわれにくくなる",
+                type: "道具"
             },
             {
                 name: "幸運",
                 reading: "こううん",
-                description: "レアなアイテムが出やすくなる",
-                descReading: "れあなあいてむがでやすくなる",
-                maxLevel: 3,
+                description: "ドロップ数が増える",
+                descReading: "どろっぷすうがふえる",
                 type: "道具"
             },
             {
                 name: "射撃ダメージ増加",
                 reading: "しゃげきだめーじぞうか",
-                description: "弓の攻撃力が上がる",
-                descReading: "やじるしのうげきりょくがあがる",
-                maxLevel: 5,
+                description: "矢のダメージが上がる",
+                descReading: "やのだめーじがあがる",
                 type: "弓"
             },
             {
                 name: "パンチ",
                 reading: "ぱんち",
-                description: "弓の矢で敵を遠くに飛ばす",
-                descReading: "やじるしの矢でてきをおおくにとばす",
-                maxLevel: 2,
+                description: "矢のノックバックを強化する",
+                descReading: "やののっくばっくをきょうかする",
                 type: "弓"
+            },
+            {
+                name: "フレイム",
+                reading: "ふれいむ",
+                description: "矢に火をつける",
+                descReading: "やにひをつける",
+                type: "弓"
+            },
+            {
+                name: "無限",
+                reading: "むげん",
+                description: "矢を消費せずに撃てる",
+                descReading: "やをしょうひせずにうてる",
+                type: "弓"
+            },
+            {
+                name: "拡散",
+                reading: "かくさん",
+                description: "矢を三方向に撃つ",
+                descReading: "やをさんほうこうにうつ",
+                type: "クロスボウ"
+            },
+            {
+                name: "貫通",
+                reading: "かんつう",
+                description: "矢が複数の敵を貫通する",
+                descReading: "やがふくすうのてきをかんつうする",
+                type: "クロスボウ"
+            },
+            {
+                name: "高速装填",
+                reading: "こうそくそうてん",
+                description: "クロスボウの装填速度が上がる",
+                descReading: "くろすぼうのそうてんそくどがあがる",
+                type: "クロスボウ"
+            },
+            {
+                name: "宝釣り",
+                reading: "たからづり",
+                description: "レアアイテムが釣れやすくなる",
+                descReading: "れああいてむがつれやすくなる",
+                type: "釣り竿"
+            },
+            {
+                name: "入れ食い",
+                reading: "いれぐい",
+                description: "魚が早くかかる",
+                descReading: "さかながはやくかかる",
+                type: "釣り竿"
+            },
+            {
+                name: "水生特効",
+                reading: "すいせいとっこう",
+                description: "水棲モブへのダメージが増える",
+                descReading: "すいせいもぶへのだめーじがふえる",
+                type: "トライデント"
+            },
+            {
+                name: "激流",
+                reading: "げきりゅう",
+                description: "水中や雨天で高速移動できる",
+                descReading: "すいちゅうやうてんでこうそくいどうできる",
+                type: "トライデント"
+            },
+            {
+                name: "忠誠",
+                reading: "ちゅうせい",
+                description: "投げたトライデントが戻る",
+                descReading: "なげたとらいでんとがもどる",
+                type: "トライデント"
+            },
+            {
+                name: "召雷",
+                reading: "しょうらい",
+                description: "雷を呼び出す",
+                descReading: "かみなりをよびだす",
+                type: "トライデント"
+            },
+            {
+                name: "修繕",
+                reading: "しゅうぜん",
+                description: "経験値で耐久値を回復する",
+                descReading: "けいけんちでたいきゅうちをかいふくする",
+                type: "共通"
             }
         ];
 
